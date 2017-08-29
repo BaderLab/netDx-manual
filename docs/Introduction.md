@@ -1,3 +1,4 @@
 # Introduction
-[ to be written ]
+
+To be written
 
