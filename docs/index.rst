@@ -12,9 +12,12 @@ Contents:
    :maxdepth: 2
    :glob:
 
-   *
-
-
+	 Introduction
+	 Installation
+	 Create_PSN
+	 Predictor_Designs
+   Output_Files
+   Interpreting_Output
 
 Indices and tables
 ==================

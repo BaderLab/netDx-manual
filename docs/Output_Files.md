@@ -1,4 +1,4 @@
-# netDx output
+# Output Files
 
 This file describes netDx output files and formats
 
