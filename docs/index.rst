@@ -9,7 +9,9 @@ Contents:
 
 	Introduction
 	Create_PSN
+	Predictor_Designs
 	Output_Files
+	Interpreting_Output
 ..
 
 Indices and tables
