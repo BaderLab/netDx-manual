@@ -11,8 +11,8 @@ Contents:
 	 Installation
 	 Create_PSN
 	 Predictor_Designs
-   Output_Files
-   Interpreting_Output
+         Output_Files
+         Interpreting_Output
 
 Indices and tables
 ==================
