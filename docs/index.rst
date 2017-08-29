@@ -4,10 +4,9 @@ netDx User Manual
 Contents:
 
 .. toctree::
-   :maxdepth: 1
-	 :numbered: 2
+	:numbered: 
 
-   Output_Files
+	Output_Files
 ..
 
 Indices and tables
