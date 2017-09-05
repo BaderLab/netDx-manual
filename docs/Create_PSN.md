@@ -5,15 +5,13 @@ This page tells you how to create PSN from different starting data.
 ## Overview
 
 ## Summary table
-<table cellspacing="0">
-<caption>Defining PSN or features</caption>
+<table cellspacing="0" border=1>
 <tr> 
 	<th>Type of data</th>
 	<th>Example</th> 
 	<th>Similarity measure</th>
 	<th>Example call</th> 
 </tr>
-
 <tr> <th class="spec">Continous, &gt; 5 vars </th>             
 	<td class="">Gene expression</td>
 	<td class="">Pearson correlation</th>
