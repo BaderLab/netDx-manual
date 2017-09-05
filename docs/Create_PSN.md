@@ -92,7 +92,7 @@ This is the default similarity metric for `makePSN_NamedMatrix()` so no special 
 ## Fewer than 5 datapoints 
 Pearson correlation is not a stable measure of similarity when there are fewer than 5 variables per patient. An alternate similarity measure in such a situation is the **average normalized difference for each variable**.
 
-![avg_normDiff](./_static/images/avg_normDiff.png)
+![avg_normDiff](./_static/images/Create_PSN/avg_normDiff.png)
 
 
 ```{r}
@@ -151,6 +151,7 @@ makePSN_NamedMatrix(dat,dat_names,myGroup,
 
 <a id="binary_nets"></a>
 ## Range-based data (genetic mutations)
+Creating patient data from genomic events such as genetic mutations or DNA copy number polymorphisms, requires a different design for 
 
 
 <a id="howto_emap"></a>
