@@ -2,10 +2,11 @@
 
 This file describes netDx output files and formats
 
-* [Overall directory tree](#overall_dir)
+* [Directory tree of results after running netDx predictor](#overall_dir)
 	* [Example 1: Luminal A prediction from gene expresion and CNV: No resampling](#ex1)
 	* [Example 2: Predictor with three resamplings](#ex2)
 	* [Example 3: Predictor with nested cross-validation](#ex3)
+* [Structure of input database for cross-validation](#genericdb)
 * **File formats:** \[<a href="#intfile">\*\_cont.txt</a>][<a href="#nrank">\*.NRANK</a>\]\[<a href="#prank">\*.PRANK</a>\]\[<a href="#cvscore">pathway_CV_score.txt or pathway_cumTally.txt</a>\]\[<a href="#profile">\*.profile</a>\]\[<a href="#query">\*.query</a>\]
 
 <a name="overall_dir"></a>
@@ -102,6 +103,23 @@ dataset_yymmdd/
   ...
   + rngK1/
 ```
+
+<a name="genericdb"></a>
+## Structure of input database for cross-validation 
+
+* Created by call to GM_createDB(). Serves as the input to create a generic GeneMANIA database.
+
+*Complete this section*
+
+```
+tmp/
+	- GENES.txt		
+	-	NETWORKS.txt
+	- *.profile # tables from which interaction nets will be created
+	+ INTERACTIONS/
+		- *.cont 		# binary interaction nets
+```
+
 
 ## File formats
 <a name="intfile"></a>
