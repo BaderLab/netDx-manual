@@ -15,7 +15,7 @@ This page tells you how to create PSN from different starting data.
 <tr> <th class="spec">Continous, &gt; 5 vars </th>             
 	<td class="">Gene expression</td>
 	<td class="">Pearson correlation</th>
-	<th class="">makePSN_NamedMatrix(writeProfiles=TRUE)
+	<td class="code">makePSN_NamedMatrix(writeProfiles=TRUE)
 </tr>
 </table>
 

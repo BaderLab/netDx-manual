@@ -25,6 +25,12 @@ th.spec {
 	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
 
+td.code{
+	border-top: 0;
+	background: #999;
+	font 10px "Courier New", "Lucida Console", monospace;
+}
+
 th.specalt {
 	border-left: 1px solid #C1DAD7;
 	border-top: 0;
