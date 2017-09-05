@@ -132,11 +132,10 @@ normDiff_avg <- function(x) {
 }
 ```
 
-Use in `netDx`:
-Say:
-* `dat` is a matrix with 5 variables (5xN matrix, where N is number of patients)
-* `dat_names` is the vector with variable names
-* `myGroup` is a list with the group name as key and members as variables,
+Use in `netDx`: Given
+* `dat`matrix with 5 variables (5xN matrix, where N is number of patients)
+* `dat_names` vector with variable names
+* `myGroup` list with the group name as key and members as variables,
 
 then the call to create networks would be:
 ```
@@ -144,6 +143,11 @@ makePSN_NamedMatrix(dat,dat_names,myGroup,
 			outDir,simMetric="custom",customFunc=normDiff_avg,
 			sparsify=TRUE)
 ```
+**Note:**
+* `simMetric="custom"`
+* `customFunc` points to the custom function definition
+* `writeProfiles=FALSE`
+* `sparsify=TRUE` *keep only the strongest edges for efficient memory use*
 
 
 <a id="binary_nets"></a>
