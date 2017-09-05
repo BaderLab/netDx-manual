@@ -60,9 +60,9 @@ Patient similarity can be measured in different ways for different types of inpu
 	<td class="">Gene expression</td>
 	<td class="">Pearson correlation</th>
 	<td class="code">makePSN_NamedMatrix(dat,dat_names, 
-        groupList,outDir,writeProfiles=<b>TRUE</b>)
+        groupList,outDir,<b>writeProfiles=TRUE</b>)
 </tr>
-<tr> <th class="spec">Continous, 1-5 vars </th>             
+<tr> <th class="spec">Continous, 2-5 vars </th>             
 	<td class="">Gene expression</td>
 	<td class="">Average normalized difference (custom)</th>
 	<td class="code">makePSN_NamedMatrix(dat,dat_names,myGroup,
@@ -72,18 +72,28 @@ Patient similarity can be measured in different ways for different types of inpu
 <tr> <th class="spec">Discrete, mutation data</th>             
 	<td class="">Gene mutations</td>
 	<td class="">Co-occurrence in same unit (e.g. gene or pathway)</th>
-	<td class="code">makePSN_NamedMatrix(dat,dat_names,myGroup,
-			outDir,<b>simMetric="custom",customFunc=normDiff2,
-				writeProfiles=FALSE,sparsify=TRUE</b>)
+	<td class="code">**makePSN_RangeSets**(mutation_GR, pathway_GRList,outDir)
 </tr>
 </table>
 
+### Defining custom similarity functions
+netDx is agnostic to the choice of similarity metric. Set the `simMetric` argument of `makePSN_NamedMatrix` to `custom` to provide a user-defined similarity metric. Be aware that the choice of similarity metric could increase false positives or false negatives during feature selection. Build controls to guard against these. 
+
 <a id="pearson"></a>
 ## Expression data
+This situation applies to a table of >5 values with continuous-valued measures. An example is a table of gene expression data, with ~20,000 measures per patient. Another is proteomic data with ~20 measures per patient.
+
+Suggested metric: *Pearson correlation*.
+This is the default similarity metric for `makePSN_NamedMatrix()` so no special specification is required.
+
+**Note:** Be sure to set `writeProfiles=TRUE`.
 
 <a id="avg_normdiff"></a>
 ## Fewer than 5 datapoints 
-average normalized difference
+Pearson correlation is not a stable measure of similarity when there are fewer than 5 variables per patient. An alternate similarity measure in such a situation is the **average normalized difference for each variable**.
+
+![avg_normDiff](./_static/images/avg_normDiff.png)
+
 
 ```{r}
 #' Similarity by average of normalized difference
@@ -121,6 +131,20 @@ normDiff_avg <- function(x) {
 	sim
 }
 ```
+
+Use in `netDx`:
+Say:
+* `dat` is a matrix with 5 variables (5xN matrix, where N is number of patients)
+* `dat_names` is the vector with variable names
+* `myGroup` is a list with the group name as key and members as variables,
+
+then the call to create networks would be:
+```
+makePSN_NamedMatrix(dat,dat_names,myGroup,
+			outDir,simMetric="custom",customFunc=normDiff_avg,
+			sparsify=TRUE)
+```
+
 
 <a id="binary_nets"></a>
 ## Range-based data (genetic mutations)
