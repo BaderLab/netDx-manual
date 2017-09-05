@@ -5,7 +5,21 @@ This page tells you how to create PSN from different starting data.
 ## Overview
 
 ## Summary table
+<table cellspacing="0">
+<caption>Defining PSN or features</caption>
+<tr> 
+	<th class="">Type of data</th>
+	<th class="">Example</th> 
+	<th class="">Similarity measure</th>
+	<th class="">Example call</th> 
+</tr>
 
+<tr> <th class="spec">Continous, &gt; 5 vars </th>             
+	<td class="">Gene expression</td>
+	<td class="">Pearson correlation</th>
+	<th class="">makePSN_NamedMatrix(writeProfiles=TRUE)
+</tr>
+</table>
 * Type of data
 * Example
 * Type of similarity
