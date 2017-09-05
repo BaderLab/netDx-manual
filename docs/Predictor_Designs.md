@@ -1,4 +1,4 @@
-# Predictor designs
+# Design the Predictor
 
 <a name="simplecv"></a>
 ## One loop of cross-validation

@@ -1,10 +1,10 @@
-# Create Patient Similarity Networks from Input Data
+# Create Patient Similarity Networks (or Feature Design)
 
 <a id="overview">
 ## Overview
 Defining meaningful patient similarity networks (or features) is the key to building a high-performing classifier. It is also crucial to using netDx for clinical discovery. When designing patient similarity networks, two considerations are the level at which individual variables should be grouped, and the measure used to define patient similarity. 
 
-## Grouping variables
+## Grouping Variables: What makes an input network?
 In a given datatype, not all measured variables are equally predictive. Moreover some groupings of variables may be more informative about mechanism, perhaps because they use prior knowledge. Such variables are more interpretable, as they reflect some process of clinical or biological relevance. For each datatype, the user needs to decide which level of variable-grouping to apply. 
 
 This table provides some examples for different types of data. Consider the lung cancer example from the [Introduction](Introduction), and assume we measure: 34 clinical variables; 20,000 genes; 16 metabolites; and genetic mutations from whole-genome sequencing.
@@ -13,7 +13,7 @@ This table provides some examples for different types of data. Consider the lung
 <tr>
 	<th>Type of data</th>
 	<th>1 variable per network</th>
-	<th>All variable per network</th>
+	<th>All variables in one network</th>
 	<th>Subset of variables per network</th>
 </tr>
 <tr>
@@ -25,25 +25,27 @@ This table provides some examples for different types of data. Consider the lung
 <tr>
 	<td style="spec">Gene expression</td>
 	<td style="">Top 10 known high-risk genes, one gene per network<i>(10 networks)</i></td>
-	<td style="">All gene expression data<i>(1 network)</i></td>
+	<td style="">All gene expression data <i>(1 network)</i></td>
 	<td style="">Genes grouped by pathways <i>(~2,000 networks)</td>
 </tr>
 <tr>
 	<td style="spec">Metabolic data</td>
 	<td style="">3 metabolites identified through other statistical analyses<i>(3 networks)</i></td>
-	<td style="">All metabolite data<i>(1 network)</i></td>
+	<td style="">All metabolite data <i>(1 network)</i></td>
 	<td style="">Metabolites grouped by biological process they affect <i>(3-4 networks)</td>
 </tr>
 <tr>
 	<td style="spec">Genetic data</td>
 	<td style="">Top genes from GWAS studies <i>(~10 networks)</i></td>
-	<td style="">All genetic data<i>(1 network)</i></td>
+	<td style="">All genetic data <i>(1 network)</i></td>
 	<td style="">Genes grouped by pathways <i>(~2,000 networks)</td>
 </tr>
 </table>
 
+## Choosing a similarity metric
+Patient similarity can be measured in different ways for different types of input data. Here is a set of recommended metrics to start with, depending on what the type of data is and how many variables were grouped to create a given net.
 
-Patient similarity can be measured in different ways for different types of input data. The figure below provides a rough guideline to defining a similarity metric for a given set of vari 
+![sim_metrics.png](./_static/images/Create_PSN/sim_metrics.png)
 
 <a id="summary"> </a>
 ## Summary table
@@ -57,13 +59,22 @@ Patient similarity can be measured in different ways for different types of inpu
 <tr> <th class="spec">Continous, over 5 vars </th>             
 	<td class="">Gene expression</td>
 	<td class="">Pearson correlation</th>
-	<td class="code">makePSN_NamedMatrix(xpr,gene_names, 
-				netDir,writeProfiles=TRUE)
+	<td class="code">makePSN_NamedMatrix(dat,dat_names, 
+        groupList,outDir,writeProfiles=<b>TRUE</b>)
 </tr>
-<tr> <th class="spec">Continous, over 5 vars </th>             
+<tr> <th class="spec">Continous, 1-5 vars </th>             
 	<td class="">Gene expression</td>
-	<td class="">Pearson correlation</th>
-	<td class="code">makePSN_NamedMatrix(writeProfiles=TRUE)
+	<td class="">Average normalized difference (custom)</th>
+	<td class="code">makePSN_NamedMatrix(dat,dat_names,myGroup,
+			outDir,simMetric="custom",customFunc=normDiff2,
+				sparsify=TRUE)
+</tr>
+<tr> <th class="spec">Discrete, mutation data</th>             
+	<td class="">Gene mutations</td>
+	<td class="">Co-occurrence in same unit (e.g. gene or pathway)</th>
+	<td class="code">makePSN_NamedMatrix(dat,dat_names,myGroup,
+			outDir,<b>simMetric="custom",customFunc=normDiff2,
+				writeProfiles=FALSE,sparsify=TRUE</b>)
 </tr>
 </table>
 
@@ -73,6 +84,43 @@ Patient similarity can be measured in different ways for different types of inpu
 <a id="avg_normdiff"></a>
 ## Fewer than 5 datapoints 
 average normalized difference
+
+```{r}
+#' Similarity by average of normalized difference
+#'
+#' @details Similarity measure for network with 2-5 variables. 
+#' Defined as the average of normalized difference for each of the 
+#' member variables
+#' @param x (matrix) rows are patients, columns are values for component
+#' variables
+normDiff_avg <- function(x) {
+
+	# normalized difference for a single variable
+	normDiff <- function(x) {
+	    nm <- colnames(x)
+	    x <- as.numeric(x)
+	    n <- length(x)
+	    rngX  <- max(x,na.rm=T)-min(x,na.rm=T)
+	    
+	    out <- matrix(NA,nrow=n,ncol=n);
+	    # weight between i and j is
+	    # wt(i,j) = 1 - (abs(x[i]-x[j])/(max(x)-min(x)))
+	    for (j in 1:n) out[,j] <- 1-(abs((x-x[j])/rngX))
+	    rownames(out) <- nm; colnames(out)<- nm
+	    out
+	}
+
+	sim <- matrix(0,nrow=ncol(x),ncol=ncol(x))
+	for (k in 1:nrow(x)) {
+		tmp <- normDiff(x[k,,drop=FALSE])
+		sim <- sim + tmp
+		rownames(sim) <- rownames(tmp)
+		colnames(sim) <- colnames(tmp)
+	}
+	sim <- sim/nrow(x)
+	sim
+}
+```
 
 <a id="binary_nets"></a>
 ## Range-based data (genetic mutations)

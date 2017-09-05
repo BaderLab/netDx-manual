@@ -123,7 +123,7 @@ tmp/
 
 ## File formats
 <a name="intfile"></a>
-#### cont.txt
+### cont.txt
 An individual patient similarity network, one per input feature.
 For example, if features are pathways, each net is named after a pathway (e.g. WNT_SIGNALING_NETWORK_cont.txt, XENOBIOTICS_cont.txt).
 Tab-delimited file without a header row; contains three columns: source patient, target patient, similarity weight.
@@ -156,7 +156,7 @@ Here is an example of a continuously-weighted network (e.g. based on gene expres
 ```
 
 <a name="nrank"></a>
-#### .NRANK
+### .NRANK
 The part of a GeneMANIA query output that contains predictive weights of input networks.
 Tab-delimited file with a header row.
 The main columns of interest are 'Network' and 'Weight'.
@@ -175,7 +175,7 @@ dummy_group             100.00
 ```
 
 <a name="prank"></a>
-#### .PRANK
+### .PRANK
 The part of a GeneMANIA query output that contains a table of patient rankings.
 Tab-delimited file with a header row. Contains three columns:
 
@@ -210,7 +210,7 @@ TCGA.AN.A0XU.01A.11R.A109.07    6.65    TCGA.AN.A0XU.01A.11R.A109.07
 ```
 
 <a name="profile"></a>
-#### .profile
+### .profile
 Feature-level patient data that gets converted into a single similarity network. For example, the dataset contains gene expression and networks are at the level of a pathway, then each pathway (network) would have an input profile of gene expression limited to just the genes for that pathway. These are temporarily created by netDx and converts to similarity networks by calling the GeneMANIA function `ProfileToNetworkDriver`.
 Rows are patients and columns are the units grouped together for a network (e.g. genes in a pathway); values are the corresponding patient data.
 Tab-delimited file without a header. First column contains ID name for patient. 
@@ -222,7 +222,7 @@ PatientK	-0.290125       -0.212625       -0.825
 ```
 
 <a name="query"></a>
-#### .query
+### .query
 GeneMANIA query file as required by QueryRunner.
 File format (as described in the [QueryRunner man page](http://pages.genemania.org/tools/#query-runner)):
 
@@ -244,7 +244,7 @@ automatic
 ```
 
 <a name="cvscore"></a>
-#### pathway_CV_score.txt or pathway_cumTally.txt
+### pathway_CV_score.txt or pathway_cumTally.txt
 This file contains feature-level scores following feature selection. *Note:* The pathway-centric terminology is outdated and will be replaced in future versions of netDx. The results will appear the same no matter what the features are, and they are not limited to pathways. 
 Tab-delimited file with a header row. 'PATHWAY_NAME' and 'SCORE'.
 
