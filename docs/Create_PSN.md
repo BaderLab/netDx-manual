@@ -8,10 +8,10 @@ This page tells you how to create PSN from different starting data.
 <table cellspacing="0">
 <caption>Defining PSN or features</caption>
 <tr> 
-	<th class="">Type of data</th>
-	<th class="">Example</th> 
-	<th class="">Similarity measure</th>
-	<th class="">Example call</th> 
+	<th>Type of data</th>
+	<th>Example</th> 
+	<th>Similarity measure</th>
+	<th>Example call</th> 
 </tr>
 
 <tr> <th class="spec">Continous, &gt; 5 vars </th>             
@@ -20,10 +20,6 @@ This page tells you how to create PSN from different starting data.
 	<th class="">makePSN_NamedMatrix(writeProfiles=TRUE)
 </tr>
 </table>
-* Type of data
-* Example
-* Type of similarity
-* Call to makePSN_NamedMatrix. Highlight writeProfiles=TRUE/FALSE
 
 <a name="pearson"></a>
 ## Expression data
