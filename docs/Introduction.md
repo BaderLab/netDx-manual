@@ -14,7 +14,7 @@ In the graphs above, the nodes are patients and the edges are weighted by simila
 ## How netDx works
 The conceptual workflow for netDx is shown below. netDx starts with patient data as above. It allows users to define similarity for each of the input datatypes and creates the resulting patient similarity networks. It then uses machine learning to identify which of the input features were predictive for each class. Finally, it uses the predictive features to classify new patients of unknown type. 
 
-![./images/Introduction/workflow.png]
+![workflow.png](./images/Introduction/workflow.png)
 
 An important aspect of the predictor is the score associated with each input feature. This score indicates the frequency with which cross-validation identified a particular network as predictive for a patient label, and is a measure of predictive power. A threshold can be applied to this score, making passing networks "feature-selected".
 
@@ -28,5 +28,5 @@ netDx therefore provides several types of output that allow the user to examine 
 * An **overall patient similarity network** created by integrating feature-selected networks
 * Where applicable, a network visualization of selected features (also called an EnrichmentMap) is generated. This view shows the major themes present in feature-selected variables.
 
-![outputs.png](./images/Introduction/outputs.png)
+![outputs.png](./images/Introduction/outputs.png){ width=50% }
 
