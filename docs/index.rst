@@ -8,6 +8,9 @@ Contents:
 	:maxdepth: 1
 
 	Introduction
+	Key_Concepts
+	Installation
+	Running_Examples
 	Create_PSN
 	Predictor_Designs
 	Output_Files
