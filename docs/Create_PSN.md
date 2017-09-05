@@ -149,9 +149,9 @@ makePSN_NamedMatrix(dat,dat_names,myGroup,
 * `writeProfiles=FALSE`
 * `sparsify=TRUE` *keep only the strongest edges for efficient memory use*
 
-
 <a id="binary_nets"></a>
 ## Range-based data (genetic mutations)
+
 
 <a id="howto_emap"></a>
 ## Setting up to get an enrichment map
