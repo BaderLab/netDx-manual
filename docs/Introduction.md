@@ -4,7 +4,7 @@ netDx is a **patient classifier** algorithm that can integrate several types of 
 
 For example, 
 
-[Test.](images/psn_intro.png)
+[Test.](./images/psn_intro.png)
 
 [Lung cancer example]
 
