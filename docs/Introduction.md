@@ -5,7 +5,7 @@ netDx is a **patient classifier** algorithm that can integrate several types of 
 ## Motivation
 
 In this example, we try to predict which patients are at high-risk for lung cancer. We have four types of data: relevant clinical variables, including smoking frequency, gene expression data, genetic mutations, and metabolomic data. netDx converts the data into 4 views of patient similarity (edge strength
-![psn_intro.png](./images/psn_intro.png)
+![psn_intro.png](./images/Introduction/psn_intro.png)
 
 In the graphs above, the nodes are patients and the edges are weighted by similarity for that particular datatype. It is evident that the high-risk patients form a strongly interconnected cluster based on smoking frequency (red network) but that the clustering is less evident for gene expression data (green network).
 
