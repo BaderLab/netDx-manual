@@ -12,8 +12,13 @@ The average of blind test classification across the 100 splits is used to measur
 Feature-selected networks are those that score consistently well across all the outer loops. For example, a strict criterion would require networks to score score 10 out of 10 in all loops.o
 
 ![nestedCV.png](./_static/images/Predictor_Designs/nestedCV.png)
-
+**Example of nested cross-validation design in binary classification.** Here an inner loop of 10-fold cross validation is run 100 times over different splits of data into train and blind test. At the end of the process, each class has a **network score table**. This matrix (call it `S`) has K rows (where K is the number of networks) and 100 columns. `S[i,j]` has the cross-validation score for network `i` in loop `j`. The user then applies a cutoff to call **feature-selected networks**.
 
 ## Overall workflow
+Ideally a dataset would have sufficient samples to be set aside at the outset, before nested CV. 
+With insufficient sample sizes, y
+
+![workflow_predictor.png](./_static/images/Predictor_Designs/workflow_predictor.png)
+
 
 
