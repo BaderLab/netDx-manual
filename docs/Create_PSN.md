@@ -151,7 +151,9 @@ makePSN_NamedMatrix(dat,dat_names,myGroup,
 
 <a id="binary_nets"></a>
 ## Range-based data (genetic mutations)
-Creating patient data from genomic events such as genetic mutations or DNA copy number polymorphisms, requires a different design for 
+Creating patient data from genomic events such as genetic mutations or DNA copy number polymorphisms, requires a different design for creating PSN.
+
+*This section coming soon - 170927*
 
 
 <a id="howto_emap"></a>
