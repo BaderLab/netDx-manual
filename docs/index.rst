@@ -3,7 +3,7 @@ netDx User Manual
 
 The first version of the netDx user manual is in active development and not all sections are currently complete. Please contact _Shraddha Pai: mailto:shraddha.pai@utoronto.ca if these pages do not answer your questions.
 
-**Citation:** Pai S., Hui S., Isserlin R., Kaka H., and GD Bader. (2016) [netDx: Patient classification using integrated patient similarity networks](http://www.biorxiv.org/content/early/2016/10/31/084418). bioRXiV. (**doi:** https://doi.org/10.1101/084418)
+**Citation:** Pai S., Hui S., Isserlin R., Shah M.A., Kaka H., and GD Bader. (2017) [netDx: Interpretable patient classification using integrated patient similarity networks](https://www.biorxiv.org/content/early/2017/09/26/084418). bioRXiV. (**doi:** https://doi.org/10.1101/084418)
 
 Contents:
 
