@@ -19,6 +19,7 @@ Contents:
 	Predictor_Designs
 	Output_Files
 	Interpreting_Output
+	Clique_Filtering
 ..
 
 Indices and tables
