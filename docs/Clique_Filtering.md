@@ -11,7 +11,7 @@ A data.frame with per-network stats on clique-filtering:
 * orig_pp: Num (+,+) interactions.
 * orig_rest: Num (+,-) and (-,-) interactions
 * ENR: Enrichment or bias of (+,+) interactions relative to other interactions. Specifically defined as `(orig_pp-orig_rest)/(orig_pp+orig_rest)`. Ranges between -1 (all non-(+,+)) to +1 (all (+,+)).
-* TOTAL_INT: orig_pp+orig_rest
+* TOTAL_INT: orig_pp+orig_rest (log-10 transformed)
 * numPerm: num permutations done in clique filtering
 * shuf_mu: mean ENR of permuted nets (i.e. mean null ENR)
 * shuf_sigma: standard deviation of ENR of permuted nets (i.e. s.d. of null ENR)
