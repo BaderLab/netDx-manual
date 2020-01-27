@@ -18,9 +18,6 @@ Contents:
 	Running_Examples
 	Create_PSN
 	Predictor_Designs
-	Output_Files
-	Interpreting_Output
-	Clique_Filtering
 ..
 
 Indices and tables
