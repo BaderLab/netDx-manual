@@ -1,6 +1,6 @@
 # Create Patient Similarity Networks (or Feature Design)
 
-<a id="overview">
+<a id="overview"></a>
 ## Overview
 Defining meaningful patient similarity networks (or features) is the key to building a high-performing classifier. It is also crucial to using netDx for clinical discovery. When designing patient similarity networks, two considerations are the level at which individual variables should be grouped, and the measure used to define patient similarity. 
 
